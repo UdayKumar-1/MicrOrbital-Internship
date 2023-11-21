@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>CountDown</title>
+        <style>
+            body{
+                background-color: lightblue;
+            }
+            .main{
+                display: grid;
+                place-content: center;
+                place-items: center;
+                background-color: aqua;
+                height: 100vh;
+                text-align: center;
+            }
+            .box{
+                height: 100px;
+                width: 200px;
+                background-color: rgb(23, 179, 231);
+                border-radius: 15px;
+                box-shadow: lightblue 1px 10px 10px,lightblue 1px 10px 10px,lightblue 1px 1px 10px;
+            }
+            h1{
+                color: blueviolet;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 22px;
+            }
+            #clock{
+                font-size: 18px;
+                color: blueviolet;
+            }
+            span{
+                padding:2px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="box">
+                <h1 id="Digital">CountDown</h1>
+                <div id="clock">
+                    <span id="hour">0</span>
+                    <span>:</span>
+                    <span id="minute">0</span>
+                    <span>:</span>
+                    <span id="second">0</span>
+                    <span>:</span>
+                    <span id="AmorPm">AM</span>
+                </div>
+            </div>
+        </div>
+        <script>
+            var hours=document.getElementById("hour");
+            var minutes=document.getElementById("minute");
+            var seconds=document.getElementById("second");
+            var amorpmSpan=document.getElementById("AmorPm");
+            function changeTime(){
+                var date=new Date();
+                var h=date.getHours();
+                hour.textContent=h;
+                var m=date.getMinutes();
+                minute.textContent=m;
+                var s=date.getSeconds();
+                second.textContent=s;
+                if(h>=0 && h<=12){
+                    amorpm="AM";
+                }
+                else{
+                    amorpm="PM";
+                }
+                AmorPm.textContent=amorpm;
+            }
+            setInterval(changeTime,1000);
+        </script>
+    </body>
+
+</html>
